@@ -1,0 +1,35 @@
+# plans and design
+
+text editor 0.1.0 - editing and saving
+
+Potential Features (a.k.a. Zach looks through the Notepad and Atom menus):
+- Multiple Tabs in one window, open, close
+- Open files for editing
+  1. prompt to save open file
+- Find and replace? Across multiple files?
+- Change themes? Background color, text color, fonts, blah, blah
+- Package the whole thing up into something neat so I do not have to do >> Python test3.py
+- Associate so it can be your default editor (Maybe if it doesn't suck)
+- autosave every x minutes
+- Intelligent copy and paste:
+  1. Specify a section of text
+  2. Choose the formatting (Numbering, maybe more)
+  3. ???
+  4. Profit
+
+
+Architecture/Design
+
+Display objects
+- main window object ~= Tk, menus
+  - swaps in views to display == Text widget, our text editor window
+
+Control objects
+- application controller - save/load, find/replace
+  - if pieces of the application logic are complex, make sub-controllers/components that the main controller
+
+State objects
+ - if a lot of background information to store, ie stuff the logic depends on but the user does not see
+  - Application state object - what string are we find and replacing with, once the entry gui goes away
+    - information for intelligent copy and paste
+    - current theme selection
