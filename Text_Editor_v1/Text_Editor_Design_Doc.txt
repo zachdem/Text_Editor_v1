@@ -1,6 +1,6 @@
 # plans and design
 
-text editor 0.1.0 - editing and saving
+text editor 0.2.0 - editing and saving
 
 Potential Features (a.k.a. Zach looks through the Notepad and Atom menus):
 - Multiple Tabs in one window, open, close
