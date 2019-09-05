@@ -1,3 +1,6 @@
+from pathlib            import Path
+from tkinter            import BOTH
+from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter.ttk        import Notebook
 
 from text_editor_tab    import TextEditorTab
@@ -11,7 +14,12 @@ class TextTabController(Notebook):
     def __init__(self, root):
         super().__init__(root)
         self.enable_traversal()
+
         self.tabs = []
+        self.create_tab()   # start with an untitled tab
+
+        self.pack(expand = True, fill = BOTH)
+
 
     def create_tab(self):
         temp_tab = TextEditorTab(self)
@@ -26,7 +34,40 @@ class TextTabController(Notebook):
             self.tabs.pop(current_index)
 
     def save_current_tab(self):
-        pass
+        #Grab the object of the current tab
+        current_tab = self.get_current_text_editor_tab()
+        #Prompt user to save file
+        if current_tab is not None:
+            filename = asksaveasfilename(filetypes = self.FILETYPES,
+                                            defaultextension = self.TEXT_EXTENSION,
+                                            title = "Select a file to save to")
+            #Protect against empty file name
+            if filename != "":
+                with open(filename, 'w') as f:
+                    f.write(current_tab.get_text())
 
     def open_to_current_tab(self):
-        pass
+        filename = askopenfilename(filetypes = self.FILETYPES,
+                                        defaultextension = self.TEXT_EXTENSION,
+                                        title = "Select a file to open")
+
+        if filename != "":
+            current_tab = self.get_current_text_editor_tab()
+            if current_tab is None:
+                self.create_tab()
+                current_tab = self.get_current_text_editor_tab()
+
+            with open(filename, 'r') as f:
+                text = f.read()
+                current_tab_id = self.select()
+                self.tab(current_tab_id, text = Path(filename).name)
+                current_tab.replace(text)
+
+    def get_current_text_editor_tab(self):
+        current_tab = None
+        current_tab_id = self.select()
+        if current_tab_id != "":
+            current_index = self.index(current_tab_id)
+            current_tab = self.tabs[current_index]
+
+        return current_tab
