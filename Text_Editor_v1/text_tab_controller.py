@@ -6,6 +6,8 @@ from tkinter.ttk        import Notebook
 from text_editor_tab    import TextEditorTab
 
 
+#Test Commit
+
 class TextTabController(Notebook):
 
     FILETYPES = (("text file", "*.txt",), ("all files", "*.*"))

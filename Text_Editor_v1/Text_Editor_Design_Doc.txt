@@ -3,12 +3,11 @@
 text editor 0.2.0 - editing and saving
 
 Potential Features (a.k.a. Zach looks through the Notepad and Atom menus):
-- Multiple Tabs in one window, open, close
 - Open files for editing
   1. prompt to save open file
+  2. open in a new tab
 - Find and replace? Across multiple files?
 - Change themes? Background color, text color, fonts, blah, blah
-- Package the whole thing up into something neat so I do not have to do >> Python test3.py
 - Associate so it can be your default editor (Maybe if it doesn't suck)
 - autosave every x minutes
 - Intelligent copy and paste:

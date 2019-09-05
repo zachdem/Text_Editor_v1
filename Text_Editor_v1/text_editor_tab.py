@@ -11,14 +11,11 @@ class TextEditorTab(Frame):
     def __init__(self, root):
         super().__init__(root)
 
-        self.textbox = Text(self,
-                            width = self.DEFAULT_WIDTH,
-                            height = self.DEFAULT_HEIGHT,
-                            undo = True)
-        self.textbox.pack()
+        self.textbox = Text(self, undo = True)
+        self.textbox.pack(expand = True, fill = BOTH)
 
     def get_text(self):
-        self.textbox.get(self.START, END)
+        return self.textbox.get(self.START, END)
 
     def replace(self, text):
         self.textbox.delete(self.START, END)
