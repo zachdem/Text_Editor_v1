@@ -6,15 +6,15 @@ from tkinter.ttk        import Notebook
 from text_editor_tab    import TextEditorTab
 
 
-#Test Commit
 
 class TextTabController(Notebook):
 
     FILETYPES = (("text file", "*.txt",), ("all files", "*.*"))
     TEXT_EXTENSION = ".txt"
 
-    def __init__(self, root):
+    def __init__(self, root, editor_settings):
         super().__init__(root)
+        self.editor_settings = editor_settings
         self.enable_traversal()
 
         self.tabs = []
@@ -73,3 +73,6 @@ class TextTabController(Notebook):
             current_tab = self.tabs[current_index]
 
         return current_tab
+
+
+    # methods to call text editor tab font changing methods for all tabs
