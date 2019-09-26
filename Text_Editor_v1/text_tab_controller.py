@@ -6,7 +6,6 @@ from tkinter.ttk        import Notebook
 from text_editor_tab    import TextEditorTab
 
 
-
 class TextTabController(Notebook):
 
     FILETYPES = (("text file", "*.txt",), ("all files", "*.*"))
@@ -74,5 +73,6 @@ class TextTabController(Notebook):
 
         return current_tab
 
-
-    # methods to call text editor tab font changing methods for all tabs
+    def update_text_tab_fonts(self, editor_settings):
+        for tab in self.tabs:
+            tab.update_font(editor_settings.get_font_tuple(), editor_settings.font_color)

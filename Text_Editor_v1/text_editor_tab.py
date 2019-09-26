@@ -21,5 +21,6 @@ class TextEditorTab(Frame):
         self.textbox.delete(self.START, END)
         self.textbox.insert(self.START, text)
 
-    # methods for changing font type, size, style
-    # self.textbox["font"] = ("fonttype ie Times", size ie 30, style ie bold)
+    def update_font(self, font_tuple, font_color):
+        self.textbox["font"] = font_tuple
+        self.textbox["foreground"] = font_color

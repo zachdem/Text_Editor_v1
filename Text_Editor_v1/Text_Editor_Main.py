@@ -32,24 +32,6 @@ def main():
     file_menu.add_command(label = "Settings",
                             command = lambda: SettingsWindow(root, tab_controller, editor_settings))
 
-    # Settings will be for all documents open not just the current textbox
-    # What will be the interface for this? A new window pops up to display settings?
-    # Need a spot to store current settings
-    # Need a spot that manages diplaying window to configure settings
-    # How do we change the font in a text box?
-    # How do we change the color in a text box?
-    # Text["font"] = ("Times New Roman", 12, "bold"))
-    # from tkinter import font
-    # font.families() to get list of available fonts
-    # possible to highlight pieces
-    # https://stackoverflow.com/questions/14786507/how-to-change-the-color-of-certain-words-in-the-tkinter-text-widget
-
-
-    # add new style menu, with command to create settings window and display to user
-    # settings window is a subclass of Toplevel, so it is a separate viewing area
-    # provide checkboxes, radio buttons, sliders, dropdowns, etc for configurable settings
-    # SettingsWindow class needs a reference to the tab controller so it can call the
-    # appropriate methods to update the text tabs
     root.mainloop()
 
 
