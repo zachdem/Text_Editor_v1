@@ -3,12 +3,12 @@
 text editor 0.2.0 - editing and saving
 
 Potential Features (a.k.a. Zach looks through the Notepad and Atom menus):
-- Open files for editing
-  1. prompt to save open file
-  2. open in a new tab
-- Find and replace? Across multiple files?
-- Change themes? Background color, text color, fonts, blah, blah
-- Associate so it can be your default editor (Maybe if it doesn't suck)
+X Open files for editing
+X  1. prompt to save open file
+X  2. open in a new tab
+ Find and replace? Across multiple files?
+X Change themes? Background color, text color, fonts, blah, blah
+/ Associate so it can be your default editor (Maybe if it doesn't suck)
 - autosave every x minutes
 - Intelligent copy and paste:
   1. Specify a section of text

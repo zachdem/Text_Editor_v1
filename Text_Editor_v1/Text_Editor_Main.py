@@ -10,7 +10,7 @@ DEFAULT_WINDOW_SIZE = "500x500"
 def main():
     root = Tk()
     root.geometry(DEFAULT_WINDOW_SIZE)
-    root.title("PAY_LOTS_OF_MONEY_AND_BUY_THIS_EDITOR")
+    root.title("The New Notepad, TM")
 
     editor_settings = EditorSettings()
     tab_controller = TextTabController(root, editor_settings)
@@ -22,7 +22,7 @@ def main():
     menubar.add_cascade(label = "File", menu = file_menu)
 
     file_menu.add_command(label = "New Tab",
-                            command = tab_controller.create_tab)
+                            command = lambda: tab_controller.create_tab(editor_settings))
     file_menu.add_command(label = "Delete Tab",
                             command = tab_controller.delete_current_tab)
     file_menu.add_command(label = "Save",

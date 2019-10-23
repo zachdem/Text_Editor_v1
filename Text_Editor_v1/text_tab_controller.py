@@ -17,13 +17,14 @@ class TextTabController(Notebook):
         self.enable_traversal()
 
         self.tabs = []
-        self.create_tab()   # start with an untitled tab
+        self.create_tab(self.editor_settings)   # start with an untitled tab
 
         self.pack(expand = True, fill = BOTH)
 
 
-    def create_tab(self):
+    def create_tab(self, editor_settings):
         temp_tab = TextEditorTab(self)
+        temp_tab.update_font(editor_settings.get_font_tuple(), editor_settings.font_color)
         self.tabs.append(temp_tab)
         self.add(temp_tab, text = 'Untitled')
 
@@ -55,7 +56,7 @@ class TextTabController(Notebook):
         if filename != "":
             current_tab = self.get_current_text_editor_tab()
             if current_tab is None:
-                self.create_tab()
+                self.create_tab(self.editor_settings)
                 current_tab = self.get_current_text_editor_tab()
 
             with open(filename, 'r') as f:
